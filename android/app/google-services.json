@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505258433823",
+    "project_id": "todo-list-provider-e846f",
+    "storage_bucket": "todo-list-provider-e846f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505258433823:android:3f15e203dd24e180c2e42a",
+        "android_client_info": {
+          "package_name": "com.github.rodrigoaustincascao.todo_list_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505258433823-1i4g2g8cdtkehlh27m74ttdbnpe3jfnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhcOiJF95k2Fma6FfT8-Y_8pK5XiK2eSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505258433823-1i4g2g8cdtkehlh27m74ttdbnpe3jfnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
