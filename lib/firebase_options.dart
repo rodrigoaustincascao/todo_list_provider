@@ -53,11 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAhcOiJF95k2Fma6FfT8-Y_8pK5XiK2eSE',
+    apiKey: "",
     appId: '1:505258433823:android:3f15e203dd24e180c2e42a',
     messagingSenderId: '505258433823',
     projectId: 'todo-list-provider-e846f',
     storageBucket: 'todo-list-provider-e846f.firebasestorage.app',
   );
-
 }
