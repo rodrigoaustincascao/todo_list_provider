@@ -91,29 +91,80 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<User?> googleLogin() async {
     final googleSignIn = GoogleSignIn();
+    print('[UserRepositoryImpl] Iniciando googleLogin...');
     try {
+      print('[UserRepositoryImpl] Chamando googleSignIn.signIn()...');
       final googleUser = await googleSignIn.signIn();
+      print('[UserRepositoryImpl] googleUser: $googleUser');
+
       if (googleUser != null) {
+        print(
+          '[UserRepositoryImpl] googleUser não é nulo. Obtendo autenticação...',
+        );
         final googleAuth = await googleUser.authentication;
+        print(
+          '[UserRepositoryImpl] googleAuth (accessToken: ${googleAuth.accessToken != null}, idToken: ${googleAuth.idToken != null})',
+        );
+
         final credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken,
           idToken: googleAuth.idToken,
         );
+        print('[UserRepositoryImpl] Credencial do Google Provider criada.');
+
+        print(
+          '[UserRepositoryImpl] Chamando _firebaseAuth.signInWithCredential...',
+        );
         final userCredential = await _firebaseAuth.signInWithCredential(
           credential,
         );
+        print(
+          '[UserRepositoryImpl] signInWithCredential bem-sucedido. User: ${userCredential.user}',
+        );
         return userCredential.user;
       }
-      return null; // Usuário cancelou o login do Google
-    } on FirebaseAuthException catch (e) {
+      print(
+        '[UserRepositoryImpl] googleUser é nulo. Usuário pode ter cancelado o login.',
+      );
+      return null;
+    } on FirebaseAuthException catch (e, s) {
+      print(
+        '[UserRepositoryImpl] FirebaseAuthException: ${e.code} - ${e.message}',
+      );
+      print(s);
       if (e.code == 'account-exists-with-different-credential') {
         throw AuthExceptions(
           message:
               'Este e-mail já está associado a outro método de login. Por favor, tente o login padrão ou o método associado.',
         );
       } else {
-        rethrow; // Lança outras exceções para serem tratadas em níveis superiores.
+        throw AuthExceptions(
+          message:
+              'Erro do Firebase Auth durante o login com Google: ${e.message} (Código: ${e.code})',
+        );
       }
+    } on PlatformException catch (e, s) {
+      print('[UserRepositoryImpl] PlatformException: ${e.code} - ${e.message}');
+      print(s);
+      throw AuthExceptions(
+        message:
+            'Erro de plataforma durante o login com Google: ${e.message ?? "Erro desconhecido da plataforma."}',
+      );
+    } catch (e, s) {
+      print('[UserRepositoryImpl] Erro genérico em googleLogin: $e');
+      print(s);
+      throw AuthExceptions(
+        message: 'Ocorreu um erro inesperado durante o login com Google.',
+      );
+    }
+  }
+
+  @override
+  Future<void> updateDisplayName(String name) async {
+    final user = _firebaseAuth.currentUser;
+    if (user != null) {
+      await user.updateDisplayName(name);
+      user.reload();
     }
   }
 }
