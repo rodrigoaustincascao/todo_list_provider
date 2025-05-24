@@ -13,7 +13,7 @@ class UserServiceImpl implements UserService {
       _userRepository.login(email, password);
 
   @override
-  Future<void> googleLogout() => _userRepository.googleLogout();
+  Future<void> logout() => _userRepository.logout();
 
   @override
   Future<User?> register(String email, String password) =>

@@ -7,7 +7,7 @@ abstract class UserRepository {
 
   Future<void> forgotPassword(String email);
 
-  Future<void> googleLogout();
+  Future<void> logout();
 
   Future<User?> googleLogin();
 }
