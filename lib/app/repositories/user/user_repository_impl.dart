@@ -47,6 +47,7 @@ class UserRepositoryImpl implements UserRepository {
         throw AuthExceptions(message: e.message ?? "Erro ao fazer login.");
       }
     }
+    return null;
   }
 
   @override
