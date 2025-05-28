@@ -41,6 +41,7 @@ class _AppWidgetState extends State<AppWidget> {
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [const Locale('pt', 'BR')],
       routes: {
