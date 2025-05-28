@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_provider/app/core/ui/theme_extensions.dart';
-import 'package:todo_list_provider/app/modules/home/widgets/home_week_filter.dart';
-import 'package:todo_list_provider/app/modules/home/widgets/homer_header.dart';
 import 'package:todo_list_provider/app/modules/home/widgets/todo_card_filter.dart';
 
 class HomeFilters extends StatefulWidget {

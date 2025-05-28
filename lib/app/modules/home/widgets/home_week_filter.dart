@@ -13,7 +13,7 @@ class HomeWeekFilter extends StatelessWidget {
         SizedBox(height: 20),
         Text('DIA DA SEMANA', style: context.titleStyle),
         SizedBox(height: 10),
-        Container(
+        SizedBox(
           height: 95,
           child: DatePicker(
             DateTime.now(),
