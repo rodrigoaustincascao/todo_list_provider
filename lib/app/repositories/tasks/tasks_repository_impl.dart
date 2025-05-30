@@ -32,4 +32,15 @@ class TasksRepositoryImpl implements TasksRepository {
 
     return result.map((e) => TasksModel.loadFromDB(e)).toList();
   }
+
+  @override
+  Future<void> checkOrUncheckTask(TasksModel task) async {
+    final conn = await _connectionFactory.openConnection();
+    final finished = task.finished ? 1 : 0;
+
+    await conn.rawUpdate('update todo set finalizado = ? where id = ?', [
+      finished,
+      task.id,
+    ]);
+  }
 }

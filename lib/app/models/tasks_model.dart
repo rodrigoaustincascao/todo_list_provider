@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class TasksModel {
   final int id;
   final String description;
@@ -17,6 +18,20 @@ class TasksModel {
       description: data['descricao'],
       dateTime: DateTime.parse(data['data_hora']),
       finished: data['finalizado'] == 1,
+    );
+  }
+
+  TasksModel copyWith({
+    int? id,
+    String? description,
+    DateTime? dateTime,
+    bool? finished,
+  }) {
+    return TasksModel(
+      id: id ?? this.id,
+      description: description ?? this.description,
+      dateTime: dateTime ?? this.dateTime,
+      finished: finished ?? this.finished,
     );
   }
 }
