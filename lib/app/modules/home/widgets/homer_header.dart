@@ -10,22 +10,18 @@ class HomerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Row(
-        children: [
-          Selector<AuthProviderTodolist, String>(
-            selector:
-                (context, authProvider) =>
-                    authProvider.user?.displayName ?? 'Não Informado',
-            builder: (_, value, __) {
-              return Text(
-                'E aí, $value!',
-                style: context.textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              );
-            },
-          ),
-        ],
+      child: Selector<AuthProviderTodolist, String>(
+        selector:
+            (context, authProvider) =>
+                authProvider.user?.displayName ?? 'Não Informado',
+        builder: (_, value, __) {
+          return Text(
+            'E aí, $value!',
+            style: context.textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          );
+        },
       ),
     );
   }
