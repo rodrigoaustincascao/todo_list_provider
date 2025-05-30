@@ -76,7 +76,7 @@ class TodoCardFilter extends StatelessWidget {
                       selected
                           ? context.primaryColorLight
                           : Colors.grey.shade500,
-                  value: 0.4,
+                  value: value,
                   valueColor: AlwaysStoppedAnimation<Color>(
                     selected ? Colors.white : context.primaryColor,
                   ),
