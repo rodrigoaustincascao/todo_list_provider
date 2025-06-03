@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "505258433823-tljmeri2cf7c5qak0k5m5jeqoni3hckg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.rodrigoaustincascao.todo_list_provider",
+            "certificate_hash": "bdbd729815870421432e74e5f0e8ecd12766b3f9"
+          }
+        },
+        {
           "client_id": "505258433823-1i4g2g8cdtkehlh27m74ttdbnpe3jfnh.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -44,3 +44,19 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase (Android)
+**/google-services.json
+
+# Keystore files
+/android/key.properties
+/android/app/*.jks
+# Ou, se você sabe o nome exato:
+# /android/app/upload-keystore.jks
+
+# Flutter/Dart packages
+.dart_tool/
+.packages
+build/
+web
+
